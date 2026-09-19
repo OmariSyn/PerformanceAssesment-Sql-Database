@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiDataApp.MainPage"
+             xmlns:local="clr-namespace:MauiDataApp"
+             Title="Data Entry App">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- App Title -->
+            <Label Text=" Omari Johnson-DataVault" 
+                   FontSize="24" 
+                   HorizontalOptions="Center" />
+
+            <!-- Instruction -->
+            <Label Text="Please provide the following information:" 
+                   FontSize="18" 
+                   HorizontalOptions="Center" />
+
+            <!-- Item ID Entry -->
+            <Label Text="Item ID" />
+            <Entry x:Name="ItemIdEntry" Placeholder="Enter Item ID" />
+
+            <!-- Item Name Entry -->
+            <Label Text="Item Name" />
+            <Entry x:Name="ItemNameEntry" Placeholder="Enter Item Name" />
+
+            <!-- Item Description Entry -->
+            <Label Text="Item Description" />
+            <Entry x:Name="ItemDescriptionEntry" Placeholder="Enter Item Description" />
+
+            <!-- Save Button -->
+            <Button Text="Save" 
+                    Clicked="OnSaveClicked" />
+
+            <!-- Items CollectionView -->
+            <Label Text="Items:" FontSize="18" />
+            <CollectionView x:Name="ItemsCollectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout Padding="10">
+                            <Label Text="{Binding ItemId}" FontAttributes="Bold" />
+                            <Label Text="{Binding ItemName}" />
+                            <Label Text="{Binding ItemDescription}" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
